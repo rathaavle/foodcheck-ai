@@ -1,11 +1,28 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
+import multer from "multer";
+import { ApiResponse } from "../types";
 
-// TODO: Implementasi POST /analyze
-// Validasi keberadaan field image, panggil ocrService, translationService, aiAnalysisService, responseBuilder
-const analyzeRouter = Router();
+const upload = multer({ storage: multer.memoryStorage() });
 
-analyzeRouter.post("/analyze", async (req, res, next) => {
-  // TODO: Implementasi handler
-});
+export const analyzeRouter = Router();
 
-export default analyzeRouter;
+analyzeRouter.post(
+  "/analyze",
+  upload.single("image"),
+  (req: Request, res: Response): void => {
+    if (!req.file) {
+      const response: ApiResponse = {
+        status: "ERROR",
+        message: "Silakan pilih atau ambil gambar terlebih dahulu",
+      };
+      res.status(400).json(response);
+      return;
+    }
+
+    // Placeholder — actual service calls wired in later tasks
+    const response: ApiResponse = {
+      status: "SUCCESS",
+    };
+    res.status(200).json(response);
+  },
+);

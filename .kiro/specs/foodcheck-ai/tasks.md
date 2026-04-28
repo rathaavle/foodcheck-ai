@@ -13,21 +13,21 @@ Implementasi dilakukan secara bertahap: dimulai dari struktur proyek dan tipe da
   - Inisialisasi `package.json` backend dengan dependensi: `express`, `multer`, `axios`, `fast-check` (dev), `jest` (dev)
   - _Persyaratan: 1.1, 1.2, 1.3, 8.1_
 
-- [ ] 2. Implementasi backend — validasi input dan routing
-  - [ ] 2.1 Buat `analyzeRouter` di `backend/src/routes/analyze.ts`
+- [x] 2. Implementasi backend — validasi input dan routing
+  - [x] 2.1 Buat `analyzeRouter` di `backend/src/routes/analyze.ts`
     - Terima `POST /analyze` dengan `multipart/form-data`
     - Validasi keberadaan field `image` sebelum memanggil layanan eksternal
     - Kembalikan HTTP 400 dengan pesan error jika gambar tidak ada
     - _Persyaratan: 1.4_
 
-  - [ ]\* 2.2 Tulis property test untuk penolakan request tanpa gambar
+  - [x] 2.2 Tulis property test untuk penolakan request tanpa gambar
     - **Properti 3: request tanpa gambar selalu ditolak**
     - **Memvalidasi: Persyaratan 1.4**
     - Tag: `// Feature: foodcheck-ai, Property 3: request tanpa gambar selalu ditolak`
     - Generator: request tanpa field `image` (berbagai variasi body)
     - Assertion: respons memiliki `status: "ERROR"` dan HTTP status 400
 
-  - [ ]\* 2.3 Tulis unit test untuk validasi input
+  - [x] 2.3 Tulis unit test untuk validasi input
     - Uji kasus: gambar ada, gambar tidak ada, field lain tidak relevan
     - _Persyaratan: 1.4_
 
