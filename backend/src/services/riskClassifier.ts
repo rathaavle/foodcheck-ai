@@ -1,7 +1,20 @@
 import { AnalysisResult } from "../types";
 
-// TODO: Validasi dan format risk_level dari respons AI
-// Pastikan nilai risk_level adalah "HIGH" | "MEDIUM" | "LOW"
+/**
+ * Validates and normalizes the risk_level value from AI response.
+ * Accepts case-insensitive input and returns the canonical uppercase form.
+ * Throws if the value is not a valid risk level.
+ */
 export function validateRiskLevel(value: string): AnalysisResult["risk_level"] {
-  throw new Error("Not implemented");
+  const normalized = value?.trim().toUpperCase();
+  if (
+    normalized === "HIGH" ||
+    normalized === "MEDIUM" ||
+    normalized === "LOW"
+  ) {
+    return normalized;
+  }
+  throw new Error(
+    `Nilai risk_level tidak valid: "${value}". Harus salah satu dari HIGH, MEDIUM, atau LOW.`,
+  );
 }
