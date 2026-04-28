@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-// TODO: Implementasi ErrorDialog
-// - Tampilkan pesan error dan saran tindakan kepada pengguna
 class ErrorDialog extends StatelessWidget {
   final String message;
   final VoidCallback? onRetry;
@@ -21,13 +19,24 @@ class ErrorDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Implementasi UI dialog error
     return AlertDialog(
-      title: const Text('Terjadi Kesalahan'),
+      title: const Row(
+        children: [
+          Icon(Icons.error_outline, color: Colors.red),
+          SizedBox(width: 8),
+          Text('Terjadi Kesalahan'),
+        ],
+      ),
       content: Text(message),
       actions: [
         if (onRetry != null)
-          TextButton(onPressed: onRetry, child: const Text('Coba Lagi')),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              onRetry!();
+            },
+            child: const Text('Coba Lagi'),
+          ),
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
           child: const Text('Tutup'),

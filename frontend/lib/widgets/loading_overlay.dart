@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-// TODO: Implementasi LoadingOverlay
-// - Widget overlay dengan indikator loading yang terlihat jelas
-// - Tampil saat pemrosesan berlangsung, hilang setelah selesai
 class LoadingOverlay extends StatelessWidget {
   final bool isLoading;
   final Widget child;
@@ -15,12 +12,28 @@ class LoadingOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Implementasi overlay loading
     return Stack(
       children: [
         child,
         if (isLoading)
-          const Center(child: CircularProgressIndicator()),
+          Positioned.fill(
+            child: ColoredBox(
+              color: Colors.black54,
+              child: const Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CircularProgressIndicator(color: Colors.white),
+                    SizedBox(height: 16),
+                    Text(
+                      'Memproses...',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
       ],
     );
   }
