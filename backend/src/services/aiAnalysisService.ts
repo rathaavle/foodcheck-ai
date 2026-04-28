@@ -54,6 +54,7 @@ export async function analyzeText(text: string): Promise<AnalysisResult> {
   }
 
   const url = `${endpoint.replace(/\/$/, "")}/openai/deployments/${deploymentName}/chat/completions?api-version=${apiVersion}`;
+  console.log("[OpenAI] url:", url);
 
   let rawContent: string;
 
@@ -80,12 +81,18 @@ export async function analyzeText(text: string): Promise<AnalysisResult> {
     );
 
     rawContent = response.data?.choices?.[0]?.message?.content;
+    console.log("[OpenAI] raw response:", rawContent);
 
     if (!rawContent) {
       throw new AiAnalysisError();
     }
   } catch (err) {
     if (err instanceof AiAnalysisError) throw err;
+    console.error("[OpenAI] error:", (err as Error).message);
+    if (axios.isAxiosError(err)) {
+      console.error("[OpenAI] status:", err.response?.status);
+      console.error("[OpenAI] data:", JSON.stringify(err.response?.data));
+    }
     throw new AiAnalysisError();
   }
 

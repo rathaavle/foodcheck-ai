@@ -48,7 +48,7 @@ export async function extractTextFromImage(
   }
 
   // Azure Document Intelligence REST API — prebuilt-read model
-  const analyzeUrl = `${endpoint.replace(/\/$/, "")}/documentintelligence/documentModels/prebuilt-read:analyze?api-version=2024-02-29-preview`;
+  const analyzeUrl = `${endpoint.replace(/\/$/, "")}/documentintelligence/documentModels/prebuilt-read:analyze?api-version=2024-11-30`;
 
   let operationLocation: string;
 
@@ -60,13 +60,16 @@ export async function extractTextFromImage(
       },
     });
 
+    console.log("[OCR] submit status:", submitResponse.status);
     operationLocation = submitResponse.headers["operation-location"] as string;
+    console.log("[OCR] operation-location:", operationLocation);
 
     if (!operationLocation) {
       throw new OcrFailureError();
     }
   } catch (err) {
     if (err instanceof OcrFailureError) throw err;
+    console.error("[OCR] submit error:", (err as Error).message);
     throw new OcrFailureError();
   }
 

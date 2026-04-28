@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        background: #f0f0f0;
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+      .label {
+        width: 380px;
+        background: white;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+      .header {
+        background: #2e7d32;
+        color: white;
+        padding: 16px 20px;
+        text-align: center;
+      }
+      .header h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .header p {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: #c8e6c9;
+      }
+      .body {
+        padding: 16px 20px;
+      }
+      .section-title {
+        font-weight: bold;
+        color: #1b5e20;
+        margin: 12px 0 6px;
+        font-size: 14px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 4px;
+      }
+      .ingredients {
+        font-size: 13px;
+        color: #333;
+        line-height: 1.6;
+      }
+      .nutrition {
+        font-size: 13px;
+        color: #555;
+      }
+      .nutrition table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .nutrition td {
+        padding: 3px 0;
+      }
+      .nutrition td:last-child {
+        text-align: right;
+        font-weight: bold;
+      }
+      .warning {
+        margin: 12px 0 0;
+        background: #fff3e0;
+        border: 1px solid #ff9800;
+        border-radius: 4px;
+        padding: 8px 12px;
+        font-size: 11px;
+        color: #e65100;
+        font-weight: bold;
+        text-align: center;
+      }
+      .badge {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .high {
+        background: #ffebee;
+        color: #c62828;
+      }
+      .medium {
+        background: #fff8e1;
+        color: #f57f17;
+      }
+      .low {
+        background: #e8f5e9;
+        color: #2e7d32;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Label 1: HIGH RISK -->
+    <div class="label">
+      <div class="header">
+        <h2>SNACK COKELAT MANIS</h2>
+        <p>Berat Bersih: 150g | BPOM RI MD 123456789</p>
+      </div>
+      <div class="body">
+        <span class="badge high">⚠ RISIKO TINGGI</span>
+        <div class="section-title">Komposisi:</div>
+        <div class="ingredients">
+          Gula, Tepung Terigu, Lemak Nabati, Cokelat Bubuk, Natrium Benzoat
+          (Pengawet), Tartrazin CI 19140 (Pewarna), Monosodium Glutamat (MSG),
+          Garam, Vanili, Lesitin Kedelai (Pengemulsi).
+        </div>
+        <div class="section-title">Informasi Nilai Gizi:</div>
+        <div class="nutrition">
+          <table>
+            <tr>
+              <td>Energi Total</td>
+              <td>250 kkal</td>
+            </tr>
+            <tr>
+              <td>Lemak Total</td>
+              <td>12 g</td>
+            </tr>
+            <tr>
+              <td>Lemak Jenuh</td>
+              <td>6 g</td>
+            </tr>
+            <tr>
+              <td>Protein</td>
+              <td>3 g</td>
+            </tr>
+            <tr>
+              <td>Karbohidrat Total</td>
+              <td>34 g</td>
+            </tr>
+            <tr>
+              <td>Gula</td>
+              <td><b style="color: #c62828">28 g</b></td>
+            </tr>
+            <tr>
+              <td>Natrium</td>
+              <td><b style="color: #c62828">480 mg</b></td>
+            </tr>
+          </table>
+        </div>
+        <div class="warning">⚠ MENGANDUNG GLUTEN, SUSU, DAN KEDELAI</div>
+      </div>
+    </div>
+
+    <!-- Label 2: MEDIUM RISK -->
+    <div class="label">
+      <div class="header">
+        <h2>MINUMAN SARI BUAH JERUK</h2>
+        <p>Berat Bersih: 250ml | BPOM RI MD 987654321</p>
+      </div>
+      <div class="body">
+        <span class="badge medium">⚡ RISIKO SEDANG</span>
+        <div class="section-title">Komposisi:</div>
+        <div class="ingredients">
+          Air, Gula, Sari Buah Jeruk 15%, Asam Sitrat (Pengatur Keasaman),
+          Natrium Benzoat (Pengawet), Vitamin C (Antioksidan), Perisa Jeruk
+          Alami, Beta Karoten (Pewarna).
+        </div>
+        <div class="section-title">Informasi Nilai Gizi:</div>
+        <div class="nutrition">
+          <table>
+            <tr>
+              <td>Energi Total</td>
+              <td>120 kkal</td>
+            </tr>
+            <tr>
+              <td>Lemak Total</td>
+              <td>0 g</td>
+            </tr>
+            <tr>
+              <td>Protein</td>
+              <td>0 g</td>
+            </tr>
+            <tr>
+              <td>Karbohidrat Total</td>
+              <td>30 g</td>
+            </tr>
+            <tr>
+              <td>Gula</td>
+              <td><b style="color: #f57f17">26 g</b></td>
+            </tr>
+            <tr>
+              <td>Natrium</td>
+              <td>45 mg</td>
+            </tr>
+          </table>
+        </div>
+        <div class="warning">⚠ MENGANDUNG PENGAWET NATRIUM BENZOAT</div>
+      </div>
+    </div>
+
+    <!-- Label 3: LOW RISK -->
+    <div class="label">
+      <div class="header">
+        <h2>AIR MINERAL ALAMI</h2>
+        <p>Berat Bersih: 600ml | BPOM RI MD 111222333</p>
+      </div>
+      <div class="body">
+        <span class="badge low">✓ RISIKO RENDAH</span>
+        <div class="section-title">Komposisi:</div>
+        <div class="ingredients">
+          Air Mineral Alami yang bersumber dari mata air pegunungan. Tidak
+          mengandung bahan tambahan apapun.
+        </div>
+        <div class="section-title">Informasi Nilai Gizi:</div>
+        <div class="nutrition">
+          <table>
+            <tr>
+              <td>Energi Total</td>
+              <td>0 kkal</td>
+            </tr>
+            <tr>
+              <td>Lemak Total</td>
+              <td>0 g</td>
+            </tr>
+            <tr>
+              <td>Protein</td>
+              <td>0 g</td>
+            </tr>
+            <tr>
+              <td>Karbohidrat Total</td>
+              <td>0 g</td>
+            </tr>
+            <tr>
+              <td>Gula</td>
+              <td>0 g</td>
+            </tr>
+            <tr>
+              <td>Natrium</td>
+              <td>5 mg</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

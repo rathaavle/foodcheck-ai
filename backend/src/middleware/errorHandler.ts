@@ -18,6 +18,11 @@ export function errorHandler(
   res: Response,
   _next: NextFunction,
 ): void {
+  // Log full error for debugging
+  console.error("[ErrorHandler]", err.name, err.message);
+  if ((err as NodeJS.ErrnoException).code) {
+    console.error("[ErrorHandler] code:", (err as NodeJS.ErrnoException).code);
+  }
   // OCR failure (Azure error) → 502
   if (err instanceof OcrFailureError) {
     res.status(502).json(buildError(err.message));
